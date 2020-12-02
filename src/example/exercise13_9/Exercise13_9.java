@@ -35,10 +35,10 @@ class BouncingBall2 extends Frame {
     }
 
     void start() {
-        new BallGenerator().start();
-        while (true) {
+        new BallGenerator().start(); // 쓰레드가 한개 추가되고
+        while (true) { // 여기는 메인쓰레드이니까 무한반복이 가능
             int size = balls.size();
-            for (int i = 0; i < size; i++) {
+            for (int i = 0; i < size; i++) { // for문을 통해서 n번째 ball을 계속 굴려줌.
                 Ball b = (Ball) balls.get(i);
                 b.x += b.xStep;
                 b.y += b.yStep;
@@ -78,8 +78,8 @@ class BouncingBall2 extends Frame {
         g.setColor(Color.RED);
         int size = balls.size();
         for (int i = 0; i < size; i++) {
-            Ball b = (Ball) balls.get(i);
-            g.fillOval(b.x, b.y, Ball.SIZE, Ball.SIZE);
+            Ball b = (Ball) balls.get(i); // (Ball) 부분을 모르겠다
+            g.fillOval(b.x, b.y, Ball.SIZE, Ball.SIZE); // ballgenerator에서 값을 3초마다하나씩 넣어서 생성한다
         }
     }
 
